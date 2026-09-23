@@ -5,9 +5,14 @@ const protect = require("./middleware/protect.js");
 const authorize = require("./middleware/authorize.js");
 let cors = require("cors");
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 app.use(express.json());
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://user-based-auth.onrender.com",
+];
 
 app.use(
   cors({
@@ -43,7 +48,7 @@ app.get("/admin", protect, authorize("admin"), (req, res) => {
 app.post("/api/auth/register", registerUser);
 app.post("/api/auth/login", loginUser);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("server is running ");
   connectDB();
 });
