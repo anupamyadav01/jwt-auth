@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://user-based-auth.onrender.com",
+  "https://jwt-auth-frontend-iovx.onrender.com",
 ];
 
 app.use(
