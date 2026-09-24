@@ -48,7 +48,7 @@ app.get("/admin", protect, authorize("admin"), (req, res) => {
 app.post("/api/auth/register", registerUser);
 app.post("/api/auth/login", loginUser);
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log("server is running ");
   connectDB();
 });
